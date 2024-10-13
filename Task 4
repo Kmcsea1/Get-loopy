@@ -1,0 +1,11 @@
+class CountDownByTwo {
+    static void countDownByTwo() {
+        for (int i = 10; i >= 0; i -= 2) {
+            System.out.print(i + " "); // Print each number
+        }
+    }
+
+    public static void main(String[] args) {
+        countDownByTwo(); 
+    }
+}
