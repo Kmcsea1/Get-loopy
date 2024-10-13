@@ -1,0 +1,44 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class DieRollar {
+    static void rollDice() {
+        Random random = new Random(); // Create a Random object
+        Scanner scanner = new Scanner(System.in);
+        int rollCount;
+
+        do {
+            rollCount = 0; // Initialize the roll count
+            System.out.println("Press Enter to start rolling dice (or type 'quit' to exit):");
+
+            // Loop to roll dice until a triple is found
+            while (true) {
+                rollCount++; // Increment the roll count
+                int die1 = random.nextInt(6) + 1; // Roll die 1
+                int die2 = random.nextInt(6) + 1; // Roll die 2
+                int die3 = random.nextInt(6) + 1; // Roll die 3
+                int sum = die1 + die2 + die3; // Calculate the sum
+
+                // Print the current roll in a formatted table
+                System.out.printf("%-5d\t%-8d\t%-8d\t%-8d\t%-8d\n", rollCount, die1, die2, die3, sum);
+
+                // Check if all dice have the same value
+                if (die1 == die2 && die2 == die3) {
+                    System.out.println("You rolled a triple! Stopping the rolls.");
+                    break; // Exit the loop if a triple is rolled
+                }
+            }
+
+            System.out.print("Do you want to roll again? (yes/no): ");
+        } while (scanner.nextLine().equalsIgnoreCase("yes")); // Continue if the user wants to roll again
+
+        scanner.close(); // Close the scanner when done
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Roll\tDie1\t\tDie2\t\tDie3\t\tSum");
+        System.out.println("----------------------------------------------------------");
+        rollDice(); // Start rolling dice
+    }
+}
+
