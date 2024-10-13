@@ -1,0 +1,11 @@
+class CountByThree {
+    static void countUpByThree() {
+        for (int i = 0; i <= 18; i += 3) {
+            System.out.print(i + " "); // Print each number 
+        }
+    }
+
+    public static void main(String[] args) {
+        countUpByThree(); // 
+    }
+}
